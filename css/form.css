@@ -1,0 +1,38 @@
+.form {
+    margin: 20px auto;
+    min-width: 300px;
+    max-width: 600px;
+    font-size: 20px;
+}
+
+.form__fieldset {
+    min-height: 473px;
+    line-height: 50px;
+    padding: 15px;
+    border: 3px solid rgb(96 97 14 / 34%);
+    border-radius: 6% / 11%;
+    background-size: 50%;
+    background-position: 107% -6%;
+    background-repeat: no-repeat;
+    background-image: url(../images/background.jpg);
+    margin-left: 15px
+}
+
+.form__legend {
+    background-color: rgb(237 239 84 / 16%);
+    border: 3px;
+}
+
+
+.form__own {
+    background-color: rgba(250, 235, 215, 0.355);
+}
+
+.form__own:hover {
+    background-color: rgba(250, 235, 215, 0.734);
+}
+
+.form__button {
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+    background: none;
+}
