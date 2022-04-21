@@ -1,36 +1,46 @@
-let ownElement = document.querySelector(".form__own");
-let formElement = document.querySelector(".form");
-let getElement = document.querySelector(".js-get");
-let currencyElement = document.querySelector(".js-currency")
+{
+    const Calculate = (currency, own) => {
+        const rateEUR = 4.6175;
+        const rateUSD = 4.2532;
+        const rateGBP = 5.5446;
 
-let rateEUR = 4.6175;
-let rateUSD = 4.2532;
-let rateGBP = 5.5446;
+        switch (currency) {
+            case "EUR":
+                return own / rateEUR;
 
-formElement.addEventListener("submit", (event) => {
-    event.preventDefault();
+            case "USD":
+                return own / rateUSD;
 
-    let own = +ownElement.value;
-    let currency = currencyElement.value;
+            case "GBP":
+                return own / rateGBP;
 
-    let get
-
-    switch (currency) {
-        case "EUR":
-            get = own / rateEUR;
-            break;
-
-        case "USD":
-            get = own / rateUSD;
-            break;
-
-        case "GBP":
-            get = own / rateGBP;
-            break;
+        }
 
     }
 
+    const getUpdateText = (own, get, currency) => {
+        const getElement = document.querySelector(".js-get");
+        getElement.innerHTML = `Za <strong> ${own} </strong> zł otrzymasz: <strong> ${get.toFixed(2)} </strong> ${currency}.`;
+    }
 
-    getElement.innerText = `Za ${ own } ${ currency } otrzymasz: ${ get.toFixed(2) } zł`
-});
+    const onFormSubmit = (event) => {
+        event.preventDefault();
 
+        const ownElement = document.querySelector(".form__own");
+        const currencyElement = document.querySelector(".js-currency")
+        const own = +ownElement.value;
+        const currency = currencyElement.value;
+
+        let get = Calculate(currency, own);
+
+        getUpdateText(own, get, currency);
+
+    }
+
+    const init = () => {
+        const formElement = document.querySelector(".form");
+        formElement.addEventListener("submit", onFormSubmit)
+    }
+
+    init();
+}
