@@ -26,7 +26,7 @@
     const onFormSubmit = (event) => {
         event.preventDefault();
 
-        const ownElement = document.querySelector(".form__own");
+        const ownElement = document.querySelector(".js-own");
         const currencyElement = document.querySelector(".js-currency")
         const own = +ownElement.value;
         const currency = currencyElement.value;
@@ -38,7 +38,7 @@
     }
 
     const init = () => {
-        const formElement = document.querySelector(".form");
+        const formElement = document.querySelector(".js-form");
         formElement.addEventListener("submit", onFormSubmit)
     }
 
